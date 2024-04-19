@@ -1,0 +1,22 @@
+.mtck-wrap {
+  width: 200px;
+  height: 250px;
+  margin: 7px auto;
+  position: relative;
+  background-color: antiquewhite;
+}
+
+.mtck-elem {
+  content: "";
+  position: absolute;
+
+  width: 7px;
+  height: 25%;
+
+  background-image: url(../images/matchstick.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; /* Добавлено */
+  pointer-events: auto; /* Добавлено */
+}
