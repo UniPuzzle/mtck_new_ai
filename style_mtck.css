@@ -15,3 +15,62 @@ body {
   background-color: aliceblue;
   position: relative; /* Добавлено */
 }
+.mtck-wrap {
+  width: 200px;
+  height: 250px;
+  margin: 7px auto;
+  position: relative;
+  background-color: antiquewhite;
+}
+@media screen and (min-width: 768px) {
+  .mtck-wrap {
+    width: 400px;
+    height: 500px;
+    margin: 7px auto;
+    position: relative;
+    background-color: antiquewhite;
+  }
+}
+
+.mtck-elem {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  width: 4%;
+  height: 25%;
+
+  background-image: url(../images/matchstick.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; /* Добавлено */
+  pointer-events: auto; /* Добавлено */
+}
+
+.mtck-elem {
+  border: 0.5px solid gray;
+}
+
+.start,
+.middle,
+.end {
+  width: 1px;
+  height: 1px;
+  border: 0.5px solid black;
+  position: absolute;
+}
+.start {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+.middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.end {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
