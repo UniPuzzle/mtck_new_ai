@@ -39,7 +39,7 @@ body {
   width: 4%;
   height: 25%;
 
-  background-image: url(../images/matchstick.svg);
+  /* background-image: url(../images/matchstick.svg); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
