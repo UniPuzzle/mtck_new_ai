@@ -1,89 +1,3 @@
-// var matchstickData = {}; // Объект для хранения координат спичек и их точек
-
-// function setInitialPositions() {
-//   var mtckWrap = document.querySelector(".mtck-wrap");
-//   var matchstickElems = mtckWrap.querySelectorAll(".mtck-elem");
-
-//   matchstickElems.forEach(function (elem) {
-//     var offsetX = elem.offsetLeft;
-//     var offsetY = elem.offsetTop;
-
-//     var matchstickCoords = {
-//       left: offsetX + "px",
-//       top: offsetY + "px",
-//       points: {},
-//     };
-//     matchstickData[elem.classList[1]] = matchstickCoords;
-
-//     var points = elem.querySelectorAll(".start, .middle, .end");
-
-//     points.forEach(function (point) {
-//       var pointOffsetX = point.offsetLeft;
-//       var pointOffsetY = point.offsetTop;
-
-//       var pointRelativeToElemX = pointOffsetX;
-//       var pointRelativeToElemY = pointOffsetY;
-
-//       var pointRelativeToWrapX = offsetX + pointOffsetX;
-//       var pointRelativeToWrapY = offsetY + pointOffsetY;
-
-//       var pointCoords = {
-//         relativeToElem: {
-//           left: pointRelativeToElemX + "px",
-//           top: pointRelativeToElemY + "px",
-//         },
-//         relativeToWrap: {
-//           left: pointRelativeToWrapX + "px",
-//           top: pointRelativeToWrapY + "px",
-//         },
-//       };
-
-//       matchstickData[elem.classList[1]].points[point.classList[0]] =
-//         pointCoords;
-//     });
-//   });
-
-//   console.log("Координаты спичек и их точек:");
-//   console.log(matchstickData);
-// }
-
-// function updateMatchstickData(elem) {
-//   var elemId = elem.classList[1];
-//   var offsetX = parseFloat(elem.style.left);
-//   var offsetY = parseFloat(elem.style.top);
-
-//   matchstickData[elemId].left = offsetX + "px";
-//   matchstickData[elemId].top = offsetY + "px";
-
-//   var points = elem.querySelectorAll(".start, .middle, .end");
-//   points.forEach(function (point) {
-//     var pointOffsetX = point.offsetLeft;
-//     var pointOffsetY = point.offsetTop;
-
-//     var pointRelativeToWrapX = offsetX + pointOffsetX;
-//     var pointRelativeToWrapY = offsetY + pointOffsetY;
-
-//     var pointCoords = {
-//       relativeToElem: {
-//         left: pointOffsetX + "px",
-//         top: pointOffsetY + "px",
-//       },
-//       relativeToWrap: {
-//         left: pointRelativeToWrapX + "px",
-//         top: pointRelativeToWrapY + "px",
-//       },
-//     };
-
-//     matchstickData[elemId].points[point.classList[0]] = pointCoords;
-//   });
-
-//   console.clear(); // Очищаем консоль перед выводом обновленных данных
-//   console.log("Обновленные координаты спички и ее точек:");
-//   console.log(matchstickData);
-// }
-
-// window.addEventListener("load", setInitialPositions);
-// ================
 var matchstickData = {}; // Объект для хранения координат спичек и их точек
 
 function setInitialPositions() {
@@ -184,3 +98,9 @@ function updateMatchstickData(elem) {
 }
 
 window.addEventListener("load", setInitialPositions);
+document.addEventListener("mouseup", function (event) {
+  if (event.target.classList.contains("mtck-elem")) {
+    updateMatchstickData(event.target);
+    setInitialPositions(); // Пересчитываем координаты после перемещения спички
+  }
+});
